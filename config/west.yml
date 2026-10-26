@@ -1,14 +1,39 @@
 manifest:
-  defaults:
-    revision: v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    # Additional modules containing boards/shields/custom code can be listed here as well
-    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+    - name: cormoran
+      url-base: https://github.com/cormoran
+    - name: m165437
+      url-base: https://github.com/M165437
   projects:
+    # Eyelash Peripherals' shield definition (pins, matrix, encoder, 5-way, nice!view SPI)
+    - name: eyelash_corne
+      url: https://github.com/a741725193/zmk-new_corne
+      revision: main
+    # ZMK v0.3 base used by the Eyelash firmware (adds Studio/DYA support)
     - name: zmk
-      remote: zmkfirmware
+      remote: cormoran
+      revision: v0.3-branch+dya
       import: app/west.yml
+    - name: zmk-behavior-runtime-sensor-rotate
+      remote: cormoran
+      revision: main
+    - name: zmk-module-ble-management
+      remote: cormoran
+      revision: zmk-v0.3.0.0
+    - name: zmk-module-battery-history
+      remote: cormoran
+      revision: main
+    - name: zmk-module-settings-rpc
+      remote: cormoran
+      revision: main
+    - name: zmk-module-runtime-input-processor
+      remote: cormoran
+      revision: zmk-v0.3.0.0
+    # Animated nice!view status screen (animation plays on the right half)
+    - name: nice-view-gem
+      remote: m165437
+      revision: v0.3.0
   self:
     path: config
