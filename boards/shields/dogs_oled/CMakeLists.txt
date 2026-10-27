@@ -1,0 +1,5 @@
+if(CONFIG_ZMK_DISPLAY AND CONFIG_DOGS_OLED_STATUS)
+  zephyr_library_include_directories(${CMAKE_SOURCE_DIR}/include)
+  zephyr_library_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+  zephyr_library_sources(custom_status_screen.c dogs_render.c dogs_art.c)
+endif()

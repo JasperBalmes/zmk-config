@@ -6,12 +6,13 @@
 # `artifact-name` to assign a name to distinguish build outputs from each other.
 ---
 include:
-  # Skull animation: left half shows the left half of the skull, right half the other half.
-  # (shield skull_oled lives in boards/shields/skull_oled)
+  # Dancing dogs + status screen (shield dogs_oled lives in boards/shields/dogs_oled).
+  # The older skull animation is still in boards/shields/skull_oled: to go back to it,
+  # change `dogs_oled` to `skull_oled` on the two lines below.
   - board: eyelash_nano
-    shield: eyelash_corne_right skull_oled
+    shield: eyelash_corne_right dogs_oled
   - board: eyelash_nano
-    shield: eyelash_corne_left skull_oled
+    shield: eyelash_corne_left dogs_oled
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: eyelash_corne_studio_left

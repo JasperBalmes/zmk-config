@@ -1,0 +1,6 @@
+file_format: "1"
+id: dogs_oled
+name: Dancing dogs OLED screen
+type: shield
+features:
+  - display

@@ -1,0 +1,75 @@
+# SPDX-License-Identifier: MIT
+
+if SHIELD_DOGS_OLED
+
+choice ZMK_DISPLAY_WORK_QUEUE
+    default ZMK_DISPLAY_WORK_QUEUE_DEDICATED
+endchoice
+
+choice ZMK_DISPLAY_STATUS_SCREEN
+    default ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
+endchoice
+
+config ZMK_DISPLAY_DEDICATED_THREAD_STACK_SIZE
+    default 2560
+
+config LV_Z_MEM_POOL_SIZE
+    default 4096
+
+config ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
+    imply DOGS_OLED_STATUS
+
+config DOGS_OLED_STATUS
+    bool "Status screen with animations"
+    default y
+    select LV_USE_CANVAS
+
+config DOGS_OLED_ORIENTATION_CCW
+    bool "Rotate the screen the other way (counter-clockwise)"
+    help
+      Pick this if everything is upside down on a vertically mounted OLED.
+      Can be set per half in config/eyelash_corne_left.conf and
+      config/eyelash_corne_right.conf.
+
+config DOGS_OLED_INVERT
+    bool "Invert the colours"
+    help
+      Pick this if the screen is dark-on-light instead of light-on-dark.
+
+config DOGS_OLED_FRAME_MS
+    int "Milliseconds per animation frame (16 frames per loop)"
+    default 120
+
+config DOGS_OLED_KPM_WINDOW_S
+    int "Seconds of typing averaged for the keys-per-minute readout"
+    range 3 30
+    default 10
+
+# Key positions (the numbers in the keymap, counting from 0) that light up on each half.
+# The defaults match the Eyelash Corne bottom thumb row:
+#   42 GUI   43 LWR   44 SPACE   |   45 ENTER   46 RSE   47 ALT
+config DOGS_OLED_POS_GUI
+    int "Position of the GUI key (left half)"
+    default 42
+
+config DOGS_OLED_POS_LWR
+    int "Position of the LWR layer key (left half)"
+    default 43
+
+config DOGS_OLED_POS_SPACE
+    int "Position of the SPACE key (left half)"
+    default 44
+
+config DOGS_OLED_POS_ENTER
+    int "Position of the ENTER key (right half)"
+    default 45
+
+config DOGS_OLED_POS_RSE
+    int "Position of the RSE layer key (right half)"
+    default 46
+
+config DOGS_OLED_POS_ALT
+    int "Position of the ALT key (right half)"
+    default 47
+
+endif # SHIELD_DOGS_OLED
