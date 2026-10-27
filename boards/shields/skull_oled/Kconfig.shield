@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: MIT
+
+config SHIELD_SKULL_OLED
+    def_bool $(shields_list_contains,skull_oled)

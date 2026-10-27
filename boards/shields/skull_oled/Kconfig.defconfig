@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: MIT
+
+if SHIELD_SKULL_OLED
+
+choice ZMK_DISPLAY_WORK_QUEUE
+    default ZMK_DISPLAY_WORK_QUEUE_DEDICATED
+endchoice
+
+choice ZMK_DISPLAY_STATUS_SCREEN
+    default ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
+endchoice
+
+config ZMK_DISPLAY_DEDICATED_THREAD_STACK_SIZE
+    default 2560
+
+config LV_Z_MEM_POOL_SIZE
+    default 4096
+
+config ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
+    imply SKULL_OLED_STATUS
+
+config SKULL_OLED_STATUS
+    bool "Skull animation status screen"
+    default y
+    select LV_USE_IMG
+    select LV_USE_ANIMIMG
+    select LV_USE_ANIMATION
+
+config SKULL_OLED_ORIENTATION_CCW
+    bool "Rotate the animation the other way (counter-clockwise)"
+    help
+      Pick this if the skull appears sideways or upside down on a vertically
+      mounted OLED. Can be set per half in config/eyelash_corne_left.conf and
+      config/eyelash_corne_right.conf.
+
+config SKULL_OLED_INVERT
+    bool "Invert the animation colours"
+    help
+      Pick this if the skull is dark on a lit background.
+
+config SKULL_OLED_ANIMATION_MS
+    int "Length of one full jaw open-and-close cycle, in milliseconds"
+    default 1400
+
+endif # SHIELD_SKULL_OLED

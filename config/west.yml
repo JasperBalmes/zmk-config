@@ -1,16 +1,21 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
     - name: cormoran
       url-base: https://github.com/cormoran
-    - name: m165437
-      url-base: https://github.com/M165437
+    - name: eyelash
+      url-base: https://github.com/a741725193
+    - name: mctechnology17
+      url-base: https://github.com/mctechnology17
   projects:
-    # Eyelash Peripherals' shield definition (pins, matrix, encoder, 5-way, nice!view SPI)
-    - name: eyelash_corne
-      url: https://github.com/a741725193/zmk-new_corne
-      revision: main
+    # Eyelash Corne OLED edition: shield definition (pins, matrix, knob, 5-way, SSD1306 OLED).
+    # Pinned to the commit this config was tested against.
+    - name: zmk-corne-oled
+      remote: eyelash
+      revision: 09f796cebeea1703c8e0bba27ee667e68c57d27b
+    # Eyelash's board definition (eyelash_nano)
+    - name: zmk-board-eyelash
+      remote: eyelash
+      revision: a90ac672bf570970b91a46967c177fcad41a2e44
     # ZMK v0.3 base used by the Eyelash firmware (adds Studio/DYA support)
     - name: zmk
       remote: cormoran
@@ -31,9 +36,9 @@ manifest:
     - name: zmk-module-runtime-input-processor
       remote: cormoran
       revision: zmk-v0.3.0.0
-    # Animated nice!view status screen (animation plays on the right half)
-    - name: nice-view-gem
-      remote: m165437
-      revision: v0.3.0
+    # Only used by the fallback "nice_oled" builds in build.yaml
+    - name: zmk-nice-oled
+      remote: mctechnology17
+      revision: 46f824abb2bd41f1287c5c68abd14122af6042a3
   self:
     path: config

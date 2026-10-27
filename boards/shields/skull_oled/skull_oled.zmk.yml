@@ -1,0 +1,6 @@
+file_format: "1"
+id: skull_oled
+name: Skull OLED animation
+type: shield
+features:
+  - display

@@ -1,0 +1,4 @@
+/*
+ * The display itself (SSD1306 128x32 on I2C) is defined by the Eyelash Corne
+ * shield. This shield only provides the status screen, so nothing is needed here.
+ */
