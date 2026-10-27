@@ -1,9 +1,8 @@
 /*
- * Animated status screen (cheering figure / spinning globe) for the Eyelash Corne OLEDs.
+ * Animated status screen (spinning globes) for the Eyelash Corne OLEDs.
  *
  *   top      Bluetooth icon + battery %, then BT profile 1-5 (left) / keys per minute (right)
- *   middle   left: a cheering figure with lines rising past it
- *            right: a slowly spinning globe
+ *   middle   a spinning globe on each screen (half a turn apart, so together they show the whole planet)
  *   bottom   key lights: GUI + SPACE (left)  ENTER + ALT (right)
  *   very bot LWR (left) / RSE (right) while that layer key is held
  *

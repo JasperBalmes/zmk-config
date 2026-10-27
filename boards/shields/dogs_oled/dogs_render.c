@@ -5,7 +5,7 @@
  *    1.. 9  Bluetooth icon + battery %
  *   12..18  left: Bluetooth profile 1-5   right: keys per minute
  *   20      dotted divider
- *   22..85  animation (cheering figure on the left, spinning globe on the right)
+ *   22..85  animation (a spinning globe on each screen)
  *   87      dotted divider
  *   90..103 two key lights (GUI / SPACE   or   ENTER / ALT)
  *  107..124 layer box (LWR   or   RSE)
